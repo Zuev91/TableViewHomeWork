@@ -27,8 +27,8 @@ class TableViewCellWithTextField: UITableViewCell {
     private func setupUI() {
         self.contentView.addSubview(myTextView)
         myTextView.translatesAutoresizingMaskIntoConstraints = false
-        myTextView.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
-        myTextView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        myTextView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 110).isActive = true
+        myTextView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
         myTextView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
         myTextView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
         myTextView.text = "Notes:"

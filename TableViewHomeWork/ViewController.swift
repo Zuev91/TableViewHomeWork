@@ -24,9 +24,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        let tableViewHeader = CustomView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 135))
-        self.tableView.tableHeaderView = tableViewHeader
-        
+//        let tableViewHeader = CustomView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 135))
+//        self.tableView.tableHeaderView = tableViewHeader
+//        
+        let tableViewFooter = CustomButtonBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40))
+        self.tableView.tableFooterView = tableViewFooter
+
     }
     
     //MARK: UI Components
@@ -39,8 +42,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -5).isActive = true
         tableView.separatorStyle = .none
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
+    }
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return 2
+//    }
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 200
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -49,12 +59,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 580
+        return 660
     }
     
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let tableViewFooter = CustomButtonBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40))
-        return tableViewFooter
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let tableViewHeader = CustomView()
+        return tableViewHeader
     }
+    
+//    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//        let tableViewFooter = CustomButtonBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40))
+//        return tableViewFooter
+//    }
 }
 
